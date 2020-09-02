@@ -129,23 +129,27 @@
                           ">
                 Spike Map de España
               </h1>
-              <p class="fw-400 fs-m1 opacity-60 ls-tightest"> Nuevos casos de coronavirus por provincia </p>
+              <p class="fw-400 fs-m1 opacity-60 ls-tightest"> Casos de coronavirus en las últimas 24 horas por provincia </p>
 
               <div class="wrapper">
                 <div id="esSpikes"></div>
                 <div id="day"></div>
               </div>
+
+              <div class="pattern-dots-xl gray-light h-5 mt-6" style="max-width: 25vw; margin: auto"></div>
         
-              <div class="pt-l1 md-ml-10 fw-400 fs-s1 opacity-60 roboto">
-          <p class="mb-2">
-            Datos extraídos del GitHub de Datadista
-          </p>
-          <p class="mb-2">
-            Notebook de Observable
-          </p>
+              <div class="pt-l2 md-ml-10 fw-400 fs-s1 opacity-60 roboto">
+                <p class="mb-2">
+                   Datos extraídos del GitHub de <a href="https://datadista.com" target="_blank" rel="nofollow" class="lh-5 pb-1 border-b bc-black hover-black no-underline ">Datadista </a>
+                </p>
+                <p class="mb-2"> 
+                  Notebook de <a href="https://observablehq.com/@adrimaqueda/spike-spain-map" target="_blank" rel="nofollow" class="lh-5 pb-1 border-b bc-black hover-black no-underline ">Observable </a>
+                </p>
               </div>
           </div>
         </div>
+
+
         <script type="module">
           // Load the Observable runtime and inspector
           import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
