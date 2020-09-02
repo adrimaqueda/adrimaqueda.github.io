@@ -43,6 +43,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/shorthandcss@1.1.1/dist/shorthand.min.css"
     />
+    
+    <link 
+      rel="stylesheet" 
+      href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@3/dist/inspector.css"
+    />
 
     <!-- añadir pattern.css -->
     <link rel="stylesheet" href="https://unpkg.com/pattern.css" />
@@ -116,7 +121,7 @@
 
         <!-- dcha -->
         <div class="w-100pc md-w-66pc">
-            <div class="p-10 lg-px-l5 h-100vh overflow-scroll">
+          <div class="p-10 lg-px-l5 h-100vh overflow-scroll">
               <h1 class="fw-700 fs-m4 opacity-80 mb-2 ls-tightest" style="
                             background: linear-gradient(to top, #ffd479 25%, transparent 25%);
                             background-position-y: -0.55rem;
@@ -126,39 +131,38 @@
               </h1>
               <p class="fw-400 fs-m1 opacity-60 ls-tightest"> Nuevos casos de coronavirus por provincia </p>
 
-        <div id="observablehq-bcc574fa">
-          <div class="observablehq-esSpikes observablehq-esSpikes"></div>
-          <div class="observablehq-viewof-day pt-l2"></div>
-        </div>
+              <div class="wrapper">
+                <div id="esSpikes"></div>
+                <div id="day"></div>
+              </div>
         
-        <div class="pt-l1 md-ml-10 fw-400 fs-s1 opacity-60 roboto">
+              <div class="pt-l1 md-ml-10 fw-400 fs-s1 opacity-60 roboto">
           <p class="mb-2">
             Datos extraídos del GitHub de Datadista
           </p>
           <p class="mb-2">
             Notebook de Observable
           </p>
-
+              </div>
+          </div>
+        </div>
         <script type="module">
-          import {
-            Runtime,
-            Inspector,
-          } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-          import define from "https://api.observablehq.com/@adrimaqueda/spike-spain-map.js?v=3";
-          new Runtime().module(define, (name) => {
-            if (name === "viewof day")
-              return Inspector.into(
-                "#observablehq-bcc574fa .observablehq-viewof-day"
-              )();
-            if (name === "esSpikes")
-              return Inspector.into(
-                "#observablehq-bcc574fa .observablehq-esSpikes"
-              )();
+          // Load the Observable runtime and inspector
+          import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+          //  Load your notebook, compiled as an ES module.
+          import notebook from "https://api.observablehq.com/@adrimaqueda/spike-spain-map.js?v=3";
+          const renders = {
+            "esSpikes": "#esSpikes",
+            "viewof day": "#day",
+          };
+
+          for (let i in renders)
+            renders[i] = document.querySelector(renders[i]);
+          const main = new Runtime().module(notebook, (name) => {
+            if (renders[name])
+              return new Inspector(renders[name]);
+            else return true;
           });
         </script>
-        </div>
-        </div>
       </body>
     </html>
-  </head>
-</html>
