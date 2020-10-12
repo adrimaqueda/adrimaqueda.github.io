@@ -142,26 +142,8 @@
                                                 ">
                 Fallecidos
               </h1>
-              <div class="act pb-5 roboto opacity-60"></div>
-              <div class="España fs-m1 roboto pb-5 "></div>
-              <div class="viewof-state pb-3 roboto"></div>
-              <div class="ccaa pb-5 roboto"></div>
-              <div class="viewof-state_scale_type pb-3 roboto"></div>
-              <div class="todas pb-5 roboto "></div>
-              
-              <script type="module">
-                import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-                import define from "https://api.observablehq.com/@adrimaqueda/covid-19-curves-spain.js?v=3";
-                (new Runtime).module(define, name => {
-                  if (name === "act") return Inspector.into(".act")();
-                  if (name === "España") return Inspector.into(".España")();
-                  if (name === "viewof state") return Inspector.into(".viewof-state")();
-                  if (name === "ccaa") return Inspector.into(".ccaa")();
-                  if (name === "viewof state_scale_type") return Inspector.into(".viewof-state_scale_type")();
-                  if (name === "todas") return Inspector.into(".todas")();
-                  return ["active_state_data"].includes(name) || null;
-                });
-              </script>
+              <iframe width="100%" height="1942" frameborder="0"
+                src="https://observablehq.com/embed/@adrimaqueda/covid-19-curves-spain?cell=act&cell=Espa%C3%B1a&cell=viewof+state&cell=ccaa&cell=viewof+state_scale_type&cell=todas"></iframe>
         
           </div>
         </div>
