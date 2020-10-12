@@ -142,9 +142,11 @@
                                                 ">
                 Fallecidos
               </h1>
-              <iframe width="100%" height="1400" frameborder="0"
-                src="https://observablehq.com/embed/@adrimaqueda/covid-19-curves-spain?cell=act&cell=Espa%C3%B1a&cell=viewof+state&cell=ccaa&cell=viewof+state_scale_type&cell=todas"></iframe>
-        
+               <div class="act"></div>
+               <div class="España my-5 roboto"></div>
+               <div class="viewof-state roboto"></div>
+               <div class="ccaa roboto mt-5"></div>
+   
           </div>
         </div>
 
@@ -166,6 +168,58 @@
               return new Inspector(renders[name]);
             else return true;
           });
+        </script>
+
+        <script type="module">
+          import {
+            Runtime,
+            Inspector,
+            Library,
+          } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+          import define from "https://api.observablehq.com/@adrimaqueda/covid-19-curves-spain@2466.js?v=3";
+
+          // Create a modified version of the standard library where width is defined as a
+          // generator created by the resizer function below to watch the clientWidth of
+          // the chart
+          const todas = document.querySelector(".todas");
+          const ccaa = document.querySelector(".ccaa");
+          const España = document.querySelector(".España");
+          const stdlib = new Library();
+          const library = Object.assign({}, stdlib, {
+            width: resizer(España, "clientWidth"),
+          });
+          const runtime = new Runtime(library);
+
+          const main = runtime.module(define, (name) => {
+            if (name === "act") return Inspector.into(".act")();
+            if (name === "España") return Inspector.into(".España")();
+            if (name === "viewof state")
+              return Inspector.into(".viewof-state")();
+            if (name === "ccaa") return Inspector.into(".ccaa")();
+            return ["active_state_data"].includes(name) || null;
+          });
+
+          // Redefine height to be a generator created by the resizer function below to
+          // watch the clientHeight of the chart. Note that height is defined differently
+          // because it is a cell (a variable) in the notebook, rather than part of the
+          // standard library
+          main.redefine("height", resizer(España, "clientHeight"));
+
+          // Rather than make separate generator functions for width and height, we've
+          // made a generalized generator "factory" function that watches the specified
+          // dimension of the specified element; e.g., the clientWidth or clientHeight of
+          // the chart
+          function resizer(element, dimension) {
+            return stdlib.Generators.observe((notify) => {
+              let width = notify(element[dimension]);
+              const resized = () => {
+                let w = element[dimension];
+                if (w !== width) notify((width = w));
+              };
+              window.addEventListener("resize", resized);
+              return () => window.removeEventListener("resize", resized);
+            });
+          }
         </script>
 
       </body>
