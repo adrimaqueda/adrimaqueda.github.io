@@ -141,15 +141,35 @@
               </div>
 
               <div class="pattern-dots-sm slategray h-2 my-l1"></div>
+
+              <h1 class="fw-700 fs-m5 opacity-80 mb-2 ls-tightest" style="
+                                                  background: linear-gradient(to top, #ffd479 25%, transparent 25%);
+                                                  background-position-y: -0.55rem;
+                                                  max-width: 185px;
+                                                ">
+                Fallecidos
+              </h1>
+              <div class="act pb-5 roboto opacity-60"></div>
+              <div class="España fs-m1 roboto pb-5 "></div>
+              <div class="viewof-state pb-3 roboto"></div>
+              <div class="ccaa pb-5 roboto"></div>
+              <div class="viewof-state_scale_type pb-3 roboto"></div>
+              <div class="todas pb-5 roboto "></div>
+              
+              <script type="module">
+                import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+                import define from "https://api.observablehq.com/@adrimaqueda/covid-19-curves-spain.js?v=3";
+                (new Runtime).module(define, name => {
+                  if (name === "act") return Inspector.into(".act")();
+                  if (name === "España") return Inspector.into(".España")();
+                  if (name === "viewof state") return Inspector.into(".viewof-state")();
+                  if (name === "ccaa") return Inspector.into(".ccaa")();
+                  if (name === "viewof state_scale_type") return Inspector.into(".viewof-state_scale_type")();
+                  if (name === "todas") return Inspector.into(".todas")();
+                  return ["active_state_data"].includes(name) || null;
+                });
+              </script>
         
-              <div class="md-ml-10 fw-400 fs-s1 opacity-60 roboto">
-                <p class="mb-2">
-                   Datos extraídos del GitHub de <a href="https://datadista.com" target="_blank" rel="nofollow" class="lh-5 pb-1 border-b bc-black hover-black no-underline ">Datadista </a>
-                </p>
-                <p class="mb-2"> 
-                  Notebook de <a href="https://observablehq.com/@adrimaqueda/spike-spain-map" target="_blank" rel="nofollow" class="lh-5 pb-1 border-b bc-black hover-black no-underline ">Observable </a>
-                </p>
-              </div>
           </div>
         </div>
 
@@ -172,5 +192,6 @@
             else return true;
           });
         </script>
+
       </body>
     </html>
