@@ -42,9 +42,23 @@
       href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@3/dist/inspector.css"
     />
 
-    <link rel="stylesheet" href="https://primer.style/css/" />
-    
-    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+    <style>
+      .svg-tooltip {
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple   Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        background: rgba(69, 77, 93, .8);
+        border-radius: .4rem;
+        color: #fff;
+        display: block;
+        font-size: 14px;
+        max-width: 320px;
+        padding: .2rem .4rem;
+        position: absolute;
+        text-overflow: ellipsis;
+        white-space: pre;
+        z-index: 300;
+        visibility: hidden;
+      }
+    </style>
 
     <!-- añadir pattern.css -->
     <link rel="stylesheet" href="https://unpkg.com/pattern.css" />
@@ -138,7 +152,7 @@
               <h1 class="fw-700 fs-m5 opacity-80 mb-2 ls-tightest" style="
                                                   background: linear-gradient(to top, #ffd479 25%, transparent 25%);
                                                   background-position-y: -0.55rem;
-                                                  max-width: 185px;
+                                                  max-width: 200px;
                                                 ">
                 Fallecidos
               </h1>
@@ -148,16 +162,44 @@
                <div class="ccaa roboto mt-5"></div>
    
               <div class="pattern-dots-sm slategray h-2 my-l1"></div>
+              
+              <h1 class="fw-700 fs-m5 opacity-80 mb-2 ls-tightest" style="
+                                          background: linear-gradient(to top, #ffd479 25%, transparent 25%);
+                                          background-position-y: -0.55rem;
+                                          max-width: 290px;
+                                        ">
+                Positividad PCR
+              </h1>
+                <div class="leyenda"></div>
+                <div class="chart"></div>
+
+              <div class="pattern-dots-sm slategray h-2 my-l1"></div>
+              
+
               <div class="roboto">
               <p class="opacity-60">Notebooks completos: </p>
               <ul class="list-disc">
                 <li class="ml-5"> <a href="https://observablehq.com/@adrimaqueda/spike-spain-map" rel="nofollow"
                   class="black opacity-40 hover-opacity-80">Spike Map</a></li>
                 <li class="ml-5"> <a href="https://observablehq.com/@adrimaqueda/covid-19-curves-spain" rel="nofollow" class="black opacity-40 hover-opacity-80">Fallecidos</a></li>
+                <li class="ml-5"> <a href="https://observablehq.com/@adrimaqueda/tasa-de-positividad-por-pais" rel="nofollow" class="black opacity-40 hover-opacity-80">Tasa de positividad por país</a></li>
               </ul>
               </div>
           </div>
         </div>
+
+        
+
+        
+        <script type="module">
+          import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+          import define from "https://api.observablehq.com/@adrimaqueda/tasa-de-positividad-por-pais.js?v=3";
+          (new Runtime).module(define, name => {
+            if (name === "leyenda") return Inspector.into(".leyenda")();
+            if (name === "chart") return Inspector.into(".chart")();;
+            return ["tooltip"].includes(name) || null;
+          });
+        </script>
 
 
         <script type="module">
