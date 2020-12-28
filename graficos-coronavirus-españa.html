@@ -160,9 +160,9 @@
               Vacunación
             </h1>
             <p class="fw-400 fs-m1 opacity-60 ls-tightest pb-3"> Dosis administradas de vacunas contra el coronavirus en todo el mundo</p>
-
-            <div class="maxdosis pb-2"></div>
-            <div class="topdosis pb-5"></div>
+            
+            <div class="topdosis"></div>
+            <div class="overall py-8"></div>
             <div class="leyenda flex justify-center"></div>
             <div class="worldNewCases"></div>
             <div class="tabla roboto mx-auto"></div>
@@ -226,7 +226,7 @@
           import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
           import define from "https://api.observablehq.com/@adrimaqueda/vacunacion-global.js?v=3";
           (new Runtime).module(define, name => {
-            if (name === "maxdosis") return Inspector.into(".maxdosis")();
+            if (name === "overall") return Inspector.into(".overall")();
             if (name === "topdosis") return Inspector.into(".topdosis")();
             if (name === "leyenda") return Inspector.into(".leyenda")();
             if (name === "worldNewCases") return Inspector.into(".worldNewCases")();
