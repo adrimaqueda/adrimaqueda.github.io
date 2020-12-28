@@ -145,6 +145,7 @@
         <div class="w-100pc md-w-66pc">
           <div class="p-10 lg-px-l5 h-100vh overflow-scroll">
 
+            <!-- mapa vacunación -->
             <h1 class="fw-700 fs-m5 opacity-80 mb-2 ls-tightest pr-3" style="
                                         background: linear-gradient(to top, #ffd479 25%, transparent 25%);
                                         background-position-y: -0.55rem;
@@ -159,23 +160,10 @@
             <div class="leyenda"></div>
             <div class="worldNewCases"></div>
             <div class="tabla roboto mx-auto" ></div>
-            
-            <script type="module">
-              import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-              import define from "https://api.observablehq.com/@adrimaqueda/vacunacion-global.js?v=3";
-              (new Runtime).module(define, name => {
-                  if (name === "maxdosis") return Inspector.into(".maxdosis")();
-                  if (name === "topdosis") return Inspector.into(".topdosis")();
-                  if (name === "leyenda") return Inspector.into(".leyenda")();
-                  if (name === "worldNewCases") return Inspector.into(".worldNewCases")();
-                  if (name === "tabla") return Inspector.into(".tabla")();
-                });
-              </script>              
-
 
             <div class="pattern-dots-sm slategray h-2 my-l1"></div>
 
-
+            <!-- spike map -->
               <h1 class="fw-700 fs-m5 opacity-80 mb-2 ls-tightest" style="
                             background: linear-gradient(to top, #ffd479 25%, transparent 25%);
                             background-position-y: -0.55rem;
@@ -192,6 +180,9 @@
 
               <div class="pattern-dots-sm slategray h-2 my-l1"></div>
 
+
+              <!-- fallecidos -->
+
               <h1 class="fw-700 fs-m5 opacity-80 mb-2 ls-tightest" style="
                                                   background: linear-gradient(to top, #ffd479 25%, transparent 25%);
                                                   background-position-y: -0.55rem;
@@ -206,6 +197,7 @@
    
               <div class="pattern-dots-sm slategray h-2 my-l1"></div>
               
+              <!-- links -->
 
               <div class="roboto">
               <p class="opacity-60">Notebooks completos: </p>
@@ -221,6 +213,22 @@
           </div>
         </div>
 
+
+        <!-- vacunación -->
+
+        <script type="module">
+          import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+          import define from "https://api.observablehq.com/@adrimaqueda/vacunacion-global.js?v=3";
+          (new Runtime).module(define, name => {
+            if (name === "maxdosis") return Inspector.into(".maxdosis")();
+            if (name === "topdosis") return Inspector.into(".topdosis")();
+            if (name === "leyenda") return Inspector.into(".leyenda")();
+            if (name === "worldNewCases") return Inspector.into(".worldNewCases")();
+            if (name === "tabla") return Inspector.into(".tabla")();
+          });
+        </script>
+
+        <!-- spike map -->
 
         <script type="module">
           // Load the Observable runtime and inspector
@@ -240,6 +248,8 @@
             else return true;
           });
         </script>
+
+        <!-- curvas -->
 
         <script type="module">
           import {
