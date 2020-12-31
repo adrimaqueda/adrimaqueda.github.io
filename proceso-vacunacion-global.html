@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+
+    <style> 
+    table {width: 100%}
+    td{padding-top: .3em;
+      padding-bottom: .3em}
+    tr{font-size: .85em;}
+    </style>
     <meta
       name="google-site-verification"
       content="eWO2mezOi36sL8Tf-Z-_EirGcRO5fA7R_qaEyIkdFdU"
@@ -9,7 +16,7 @@
     <meta name="author" content="Adrián Maqueda" />
     <meta
       name="description"
-      content="Spike Map de los casos diarios de coronavirus en España por provincia y gráficos de muertes por ccaa"
+      content="Dashboard vacunación global por países - Adrián Maqueda"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/tab.png" />
@@ -22,14 +29,14 @@
 
     <!-- rrss -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="og:description" content="Spike Map de los casos diarios de coronavirus en España por provincia y gráficos de muertes por ccaa"/>
+    <meta name="og:description" content="Dashboard vacunación global por países - Adrián Maqueda"/>
     
-    <meta name="twitter:title" content="Gráficos Coronavirus España" />
+    <meta name="twitter:title" content="Dashboard vacunación global por países" />
     <meta name="twitter:creator" content="@adrimaqueda" />
 
-    <meta property="og:url" content="/graficos-coronavirus-españa" />
+    <meta property="og:url" content="/proceso-vacunacion-global" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Gráficos Coronavirus España" />
+    <meta property="og:title" content="Dashboard vacunación global por países" />
 
     <!-- css -->
     <link
@@ -66,7 +73,7 @@
     <!-- añadir AOS -->
 
     <!-- cambiar título página-->
-    <title>Gráficos Coronavirus España - Adrián Maqueda</title>
+    <title>Proceso vacunación global - Adrián Maqueda</title>
   </head>
 
   <body class="fira-code">
@@ -145,130 +152,42 @@
         <div class="w-100pc md-w-75pc">
           <div class="p-10 lg-px-l5 h-100vh overflow-scroll">
 
-            <!-- spike map -->
-              <h1 class="fw-700 fs-m5 opacity-80 mb-2 ls-tightest" style="
-                            background: linear-gradient(to top, #ffd479 25%, transparent 25%);
-                            background-position-y: -0.55rem;
-                            max-width: 185px;
-                          ">
-                Spike Map
-              </h1>
-              <p class="fw-400 fs-m1 opacity-60 ls-tightest"> Casos de coronavirus en las últimas 24 horas por provincia </p>
+            <!-- mapa vacunación -->
+            <h1 class="fw-700 fs-m5 opacity-80 mb-2 ls-tightest pr-3" style="
+                                        background: linear-gradient(to top, #ffd479 25%, transparent 25%);
+                                        background-position-y: -0.55rem;
+                                        display:inline-flex;
+                                      ">
+              Vacunación
+            </h1>
+            <p class="fw-400 fs-m1 opacity-60 ls-tightest pb-3"> Dosis administradas de vacunas contra el coronavirus en todo el mundo</p>
+            
+            <div class="topdosis"></div>
+            <div class="overall py-8"></div>
+            <div class="leyenda flex justify-center"></div>
+            <div class="worldNewCases"></div>
+            <div class="tabla roboto mx-auto"></div>
 
-              <div class="wrapper">
-                <div id="esSpikes"></div>
-                <div class="fs-s2 roboto" id="day"></div>
-              </div>
-
-              <div class="pattern-dots-sm slategray h-2 my-l1"></div>
-
-
-              <!-- fallecidos -->
-
-              <h1 class="fw-700 fs-m5 opacity-80 mb-2 ls-tightest" style="
-                                                  background: linear-gradient(to top, #ffd479 25%, transparent 25%);
-                                                  background-position-y: -0.55rem;
-                                                  max-width: 200px;
-                                                ">
-                Fallecidos
-              </h1>
-               <div class="act opacity-60"></div>
-               <div class="España my-5 roboto"></div>
-               <div class="viewof-state roboto"></div>
-               <div class="ccaa roboto mt-5"></div>
-   
-              <div class="pattern-dots-sm slategray h-2 my-l1"></div>
-              
-              <!-- links -->
-
-              <div class="roboto">
-              <p class="opacity-60">Notebooks completos: </p>
-              <ul class="list-disc">
-                <li class="ml-5"> <a href="https://observablehq.com/@adrimaqueda/vacunacion-global" rel="nofollow"
-                  class="black opacity-40 hover-opacity-80">Vacunación global</a></li>
-                <li class="ml-5"> <a href="https://observablehq.com/@adrimaqueda/spike-spain-map" rel="nofollow"
-                  class="black opacity-40 hover-opacity-80">Spike Map</a></li>
-                <li class="ml-5"> <a href="https://observablehq.com/@adrimaqueda/covid-19-curves-spain" rel="nofollow" class="black opacity-40 hover-opacity-80">Fallecidos</a></li>
-                <li class="ml-5"> <a href="https://observablehq.com/@adrimaqueda/tasa-de-positividad-por-pais" rel="nofollow" class="black opacity-40 hover-opacity-80">Tasa de positividad por país</a></li>
-              </ul>
-              </div>
+            
           </div>
         </div>
 
-        <!-- spike map -->
+
+        <!-- vacunación -->
 
         <script type="module">
-          // Load the Observable runtime and inspector
           import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-          //  Load your notebook, compiled as an ES module.
-          import notebook from "https://api.observablehq.com/@adrimaqueda/spike-spain-map.js?v=3";
-          const renders = {
-            "esSpikes": "#esSpikes",
-            "viewof day": "#day",
-          };
-
-          for (let i in renders)
-            renders[i] = document.querySelector(renders[i]);
-          const main = new Runtime().module(notebook, (name) => {
-            if (renders[name])
-              return new Inspector(renders[name]);
-            else return true;
+          import define from "https://api.observablehq.com/@adrimaqueda/vacunacion-global.js?v=3";
+          (new Runtime).module(define, name => {
+            if (name === "overall") return Inspector.into(".overall")();
+            if (name === "topdosis") return Inspector.into(".topdosis")();
+            if (name === "leyenda") return Inspector.into(".leyenda")();
+            if (name === "worldNewCases") return Inspector.into(".worldNewCases")();
+            if (name === "tabla") return Inspector.into(".tabla")();
           });
         </script>
 
-        <!-- curvas -->
-
-        <script type="module">
-          import {
-            Runtime,
-            Inspector,
-            Library,
-          } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-          import define from "https://api.observablehq.com/@adrimaqueda/covid-19-curves-spain.js?v=3";
-
-          // Create a modified version of the standard library where width is defined as a
-          // generator created by the resizer function below to watch the clientWidth of
-          // the chart
-          const todas = document.querySelector(".todas");
-          const ccaa = document.querySelector(".ccaa");
-          const España = document.querySelector(".España");
-          const stdlib = new Library();
-          const library = Object.assign({}, stdlib, {
-            width: resizer(España, "clientWidth"),
-          });
-          const runtime = new Runtime(library);
-
-          const main = runtime.module(define, (name) => {
-            if (name === "act") return Inspector.into(".act")();
-            if (name === "España") return Inspector.into(".España")();
-            if (name === "viewof state")
-              return Inspector.into(".viewof-state")();
-            if (name === "ccaa") return Inspector.into(".ccaa")();
-            return ["active_state_data"].includes(name) || null;
-          });
-
-          // Redefine height to be a generator created by the resizer function below to
-          // watch the clientHeight of the chart. Note that height is defined differently
-          // because it is a cell (a variable) in the notebook, rather than part of the
-          // standard library
-          main.redefine("height", resizer(España, "clientHeight"));
-
-          // Rather than make separate generator functions for width and height, we've
-          // made a generalized generator "factory" function that watches the specified
-          // dimension of the specified element; e.g., the clientWidth or clientHeight of
-          // the chart
-          function resizer(element, dimension) {
-            return stdlib.Generators.observe((notify) => {
-              let width = notify(element[dimension]);
-              const resized = () => {
-                let w = element[dimension];
-                if (w !== width) notify((width = w));
-              };
-              window.addEventListener("resize", resized);
-              return () => window.removeEventListener("resize", resized);
-            });
-          }
-        </script>
+       
 
       </body>
     </html>
