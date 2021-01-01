@@ -182,8 +182,8 @@
           import define from "https://api.observablehq.com/@adrimaqueda/vacunacion-global.js?v=3";
           (new Runtime).module(define, name => {
             if (name === "overall") return Inspector.into(".overall")();
-            if (name === "topdosis") return Inspector.into(".top_dosis")();
-            if (name === "topdosis") return Inspector.into(".top_inmune")();
+            if (name === "top_dosis") return Inspector.into(".top_dosis")();
+            if (name === "top_inmune") return Inspector.into(".top_inmune")();
             if (name === "leyenda") return Inspector.into(".leyenda")();
             if (name === "worldNewCases") return Inspector.into(".worldNewCases")();
             if (name === "tabla") return Inspector.into(".tabla")();
