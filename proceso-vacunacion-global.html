@@ -163,7 +163,8 @@
             <p class="fw-400 fs-m1 opacity-60 ls-tightest pb-3"> Dosis administradas de vacunas contra el coronavirus en todo el mundo</p>
             <p class="fw-400 fs-m1 opacity-60 ls-tightest pb-3"> Datos extraídos del dataset de <a class="opacity-100" href="https://ourworldindata.org/covid-vaccinations" target="_blank">Our World in Data</a></p>
             
-            <div class="topdosis"></div>
+            <div class="top_dosis"></div>
+            <div class="top_inmune"></div>
             <div class="overall py-8"></div>
             <div class="leyenda flex justify-center"></div>
             <div class="worldNewCases"></div>
@@ -181,7 +182,8 @@
           import define from "https://api.observablehq.com/@adrimaqueda/vacunacion-global.js?v=3";
           (new Runtime).module(define, name => {
             if (name === "overall") return Inspector.into(".overall")();
-            if (name === "topdosis") return Inspector.into(".topdosis")();
+            if (name === "topdosis") return Inspector.into(".top_dosis")();
+            if (name === "topdosis") return Inspector.into(".top_inmune")();
             if (name === "leyenda") return Inspector.into(".leyenda")();
             if (name === "worldNewCases") return Inspector.into(".worldNewCases")();
             if (name === "tabla") return Inspector.into(".tabla")();
