@@ -165,7 +165,8 @@
             
             <div class="top_dosis pb-3"></div>
             <div class="top_inmune"></div>
-            <div class="overall py-8"></div>
+            <div class="overall pt-8"></div>
+            <div class="viewof-dd1 py-8"></div>
             <div class="leyenda flex justify-center"></div>
             <div class="worldNewCases"></div>
             <div class="tabla roboto mx-auto"></div>
@@ -182,6 +183,7 @@
           import define from "https://api.observablehq.com/@adrimaqueda/vacunacion-global.js?v=3";
           (new Runtime).module(define, name => {
             if (name === "overall") return Inspector.into(".overall")();
+            if (name === "viewof dd1") return Inspector.into(".viewof-dd1")();
             if (name === "top_dosis") return Inspector.into(".top_dosis")();
             if (name === "top_inmune") return Inspector.into(".top_inmune")();
             if (name === "leyenda") return Inspector.into(".leyenda")();
