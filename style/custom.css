@@ -460,7 +460,6 @@ figure {
 .socials {
   font-size: 28px;
   margin-top: 1rem;
-  display: -webkit-flex;
 }
 
 .socials > a {
