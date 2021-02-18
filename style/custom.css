@@ -459,6 +459,7 @@ figure {
 
 .socials {
   margin-top: 1rem;
+  display: flex;
 }
 
 .socials > a {
