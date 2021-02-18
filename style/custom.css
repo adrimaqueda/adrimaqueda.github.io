@@ -467,6 +467,7 @@ figure {
 .socials > a {
   color: white;
   background: none;
+  padding-right: 10px;
 }
 
 .socials > a:hover {
