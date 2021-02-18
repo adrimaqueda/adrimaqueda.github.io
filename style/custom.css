@@ -440,7 +440,7 @@ figure {
   color: #f7f7f7;
   margin-right: auto;
   margin-left: auto;
-  padding-bottom: 0.3em;
+  padding-bottom: 0.8em;
   line-height: 1.2;
   font-weight: 300;
   font-size: 2.5vw;
@@ -641,7 +641,6 @@ figure {
 @media (min-width: 1200px) {
   .headline {
     font-size: 8vw;
-    padding-bottom: 0.1em;
   }
 
   .currently {
