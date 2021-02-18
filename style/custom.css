@@ -7,9 +7,6 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
     scroll-behavior:smooth
 }
 
-html {
-    cursor:url(chunkie_cursor.d94bc92c.png), auto
-}
 
 * {
     box-sizing:border-box
@@ -306,6 +303,20 @@ figure {
     text-align:left
 }
 
+.highlight {
+    text-align: center;
+    padding-bottom: 1em:
+}
+
+@media (max-width: 768px) {
+    .highlight {
+        text-align: left;
+        padding-bottom: 1em;
+    }
+
+}
+
+
 .socials {
     font-size: 28px;
     margin-top:1rem;
@@ -313,12 +324,13 @@ figure {
 }
 
 .socials > a {
-    color: #333;
-    padding:0 6px 2px
+    color: white;
+    padding:0 6px 2px;
+    background: none;
 }
 
 .socials > a:hover {
-    color:#b7d9fa
+    color: #ffd479
 }
 
 @-moz-keyframes bounce {
@@ -438,7 +450,8 @@ figure {
 
 @media (max-width: 800px) {
     .headline {
-        font-size:5rem
+        font-size:5rem;
+        padding-bottom: .2em;
     }
 
     .currently {
@@ -462,7 +475,8 @@ figure {
 
 @media (min-width: 800px) and(max-width: 1200px) {
     .headline {
-        font-size:10vw
+        font-size:10vw;
+        padding-bottom: .08em;
     }
 
     .currently {
@@ -472,11 +486,31 @@ figure {
 
 @media (min-width: 1200px) {
     .headline {
-        font-size:8vw
+        font-size:8vw;
+        padding-bottom: .1em;
     }
 
     .currently {
         font-size:2.5vw
+    }
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size:1.8rem
+    }
+}
+
+
+@media (min-width: 800px) and(max-width: 1200px) {
+    h1 {
+        font-size: 3.2vw
+    }
+}
+
+@media (min-width: 1200px) {
+    h1 {
+        font-size:4.5vw
     }
 }
 
