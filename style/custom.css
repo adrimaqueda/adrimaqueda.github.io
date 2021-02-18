@@ -87,6 +87,34 @@ h1 {
     letter-spacing:.01em
 }
 
+h2 {
+    font-size: 1.8em;
+    letter-spacing:.01em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+    font-weight: 300;
+}
+
+@media (max-width: 800px) {
+    h2 {
+        font-size: 1.4rem;
+        text-align: left;
+    }
+}
+
+@media (min-width: 800px) and(max-width: 1200px) {
+    h2 {
+        font-size: 1.6vw
+    }
+}
+
+@media (min-width: 1200px) {
+    h2 {
+        font-size:2.5vw
+    }
+}
+
 h1, h3 {
     text-align: left;
     font-family: Roboto Mono, monospace;
@@ -104,9 +132,47 @@ h3 {
 p {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 1rem;
     line-height: 1.5rem;
     color:#333
+}
+
+@media (max-width: 800px) {
+    p {
+        font-size: 1rem;
+        text-align: left;
+    }
+}
+
+@media (min-width: 800px) and(max-width: 1200px) {
+    p {
+        font-size: .8vw
+    }
+}
+
+@media (min-width: 1200px) {
+    p {
+        font-size:1.5vw
+    }
+}
+
+@media (max-width: 800px) {
+    a {
+        font-size: 1rem;
+        text-align: left;
+    }
+}
+
+@media (min-width: 800px) and(max-width: 1200px) {
+    a {
+        font-size: .8vw
+    }
+}
+
+@media (min-width: 1200px) {
+    a {
+        font-size:1.5vw
+    }
 }
 
 section.header {
@@ -120,13 +186,6 @@ section.header {
     min-width: 300px;
     font-size: 18px;
     margin-top:1rem
-}
-
-h2 {
-    text-align: center;
-    font-size: 24px;
-    font-weight: 600;
-    border-bottom:1px solid #333
 }
 
 .row a {
@@ -498,7 +557,7 @@ figure {
 
 @media (max-width: 800px) {
     h1 {
-        font-size:1.8rem
+        font-size: 2rem
     }
 }
 
