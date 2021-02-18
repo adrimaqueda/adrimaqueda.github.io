@@ -604,12 +604,13 @@ figure {
 @media (max-width: 800px) {
   .headline {
     font-size: 4rem;
-    padding-bottom: 0.2em;
-    line-height: 1.2;
+    padding-bottom: 0.5em;
+    line-height: 1;
   }
 
   .currently {
     font-size: 1.65rem;
+    padding-bottom: 1em;
   }
 
   .header-container {
