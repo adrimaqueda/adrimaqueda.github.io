@@ -466,7 +466,6 @@ figure {
 
 .socials > a {
   color: white;
-  padding: 0 6px 2px;
   background: none;
 }
 
@@ -603,8 +602,9 @@ figure {
 
 @media (max-width: 800px) {
   .headline {
-    font-size: 5rem;
+    font-size: 4rem;
     padding-bottom: 0.2em;
+    line-height: 1.3;
   }
 
   .currently {
