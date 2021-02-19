@@ -27,11 +27,8 @@
   <meta property="og:title" content="Adrián Maqueda" />
 
   <!-- css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="style/custom.css" />
-
-  <!-- añadir pattern.css -->
-  <link rel="stylesheet" href="https://unpkg.com/pattern.css" />
-
   <!-- añadir AOS -->
 
   <!-- cambiar título página-->
@@ -47,7 +44,8 @@
     <div class="header-container">
       <h1 class="headline">Adrián Maqueda</h1>
       <p class="currently">periodista de datos y visualización</p>
-      <div >
+      
+      <div>
         <a href="https://twitter.com/adrimaqueda"
         target="_blank" style="background: none;color:white; padding-right: .5em;">
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
@@ -58,7 +56,6 @@
             </path>
           </svg>
         </a>
-        
         <a href="https://instagram.com/adrimaqueda" 
           target="_blank" style="background: none;color:white; padding-right: .5em">
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
@@ -101,17 +98,50 @@
      </div>
     </div>
   </div>
+  <!-- flecha -->
 </div>
 
-<div style="height: 100vh; max-width: 95%; margin: 0 auto;position: relative">
-  <div style="position: relative; top: 50%; left:50%; transform: translate(-50%, -50%); padding: 10px;">
-    <h1 style="text-align: center">👷🏻‍♂️ <br>En construcción...</h1>
-    <h2 style="padding-top: .2em;"> Mientras tanto, aquí hay algunas cosas que he hecho:</h2>
-    <p class="highlight" ><a href="https://www.newtral.es/vacunas-covid-cuantas-hay-mapa-global/20210217/" target="_blank">Uso de las vacunas en todo el mundo</a>, en Newtral.es</p>
-    <p class="highlight" ><a href="https://observablehq.com/@adrimaqueda/tracking-vacunacion-espana" target="_blank">Tracking de vacunación en España por Comunidad Autónoma</a>, en Observable</p>
-
+<main style="background-color: #fdfdfd;">
+  <div style="height: 100vh; margin: 0 auto;position: absolute;">
+    <div style="padding: 10px;">
+      <h1 style="text-align: center; padding-top: 1em;">👷🏻‍♂️ <br>En construcción...</h1>
+      <h2 style="padding: 10px;"> Mientras tanto, aquí hay algunas cosas que he hecho:</h2>
+      <div class="body-container">
+        <div class="row">
+          <div class="column">
+              <a href="https://www.newtral.es/vacunas-covid-cuantas-hay-mapa-global/20210217/" target="_blank">
+                <figure class="nw block content">
+                  <div class="affilationBackground nw info">
+                    <p class="affiliation left-half">Newtral.es</p>
+                    <p class="affiliation right-half">Feb 2021</p>
+                  </div>                
+                  <h3>Uso de vacunas contra la COVID-19</h3>
+                  <p class="description">Mapa en D3 de las vacunas usadas en cada país</p>
+                  <img class="itemimage" src="images/vacunas_c.gif" style="width:100%;">
+                </figure>
+              </a>
+          </div>
+  
+          <div class="column">
+            <a href="https://observablehq.com/@adrimaqueda/tracking-vacunacion-espana" target="_blank">
+              <figure class="nw block content">
+                <div class="affilationBackground nw info">
+                  <p class="affiliation left-half">Newtral.es</p>
+                  <p class="affiliation right-half">Feb 2021</p>
+                </div>                
+                <h3>Uso de vacunas contra la COVID-19</h3>
+                <p class="description">Mapa en D3 de las vacunas usadas en cada país</p>
+                <img class="itemimage" src="images/track-vac-esp.png" style="width:100%;">
+              </figure>
+            </a>
+        </div>
+    </div>
   </div>
-</div>
+</main>
+
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </html>
