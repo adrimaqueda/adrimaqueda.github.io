@@ -642,29 +642,16 @@ figure {
   border-radius: 3px;
 }
 
-figure > div.wsj {
-  background: rgba(255, 102, 97, 0.3);
-  border-radius: 2px;
-  height: 25px;
-}
-
-figure > div.side-project {
+figure > div.obs {
   background: hsla(0, 0%, 85%, 0.6);
   border-radius: 2px;
   height: 25px;
 }
 
-figure > div.nbc {
-  background: rgba(208, 207, 252, 0.3);
-}
 
-figure > div.nw,
-figure > div.nbc {
+figure > div.nw {
   border-radius: 2px;
   height: 25px;
-}
-
-figure > div.nw{
   background: #80dfaca6;
 }
 
@@ -673,7 +660,7 @@ figure > div.nw{
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5rem;
-  padding: 0 3px;
+  padding: 0 .5em;
   display: inline-block;
   position: relative;
 }
