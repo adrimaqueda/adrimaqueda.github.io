@@ -94,6 +94,16 @@ video {
   box-sizing: border-box;
 }
 
+@media (min-width: 1920px) {
+
+.wrapper {
+  width: 95vw;
+  width: clamp(16rem, 95vw, 70rem);
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}}
+
 a {
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👨🏻‍💻</text></svg>")
       16 0,
@@ -191,7 +201,7 @@ h2 {
 
 @media (min-width: 1200px) {
   h2 {
-    font-size: 2.5vw;
+    font-size: clamp(2rem, 2.5vw, 3.3rem)
   }
 }
 
@@ -234,7 +244,7 @@ p {
 
 @media (min-width: 1200px) {
   p {
-    font-size: 1.6vw;
+    font-size: clamp(1rem, 1.6vw, 2rem)
   }
 }
 
@@ -253,7 +263,7 @@ p {
 
 @media (min-width: 1200px) {
   a {
-    font-size: 1.6vw;
+    font-size: clamp(1rem, 1.6vw, 2rem)
   }
 }
 
@@ -635,17 +645,17 @@ figure {
   }
 
   .currently {
-    font-size: 3.2vw;
+    font-size: 2.5vw; 
   }
 }
 
 @media (min-width: 1200px) {
   .headline {
-    font-size: 8vw;
+    font-size: clamp(5rem, 8vw, 7rem)
   }
 
   .currently {
-    font-size: 2.5vw;
+    font-size: clamp(2rem, 3.2vw, 2.8rem)
   }
 }
 
@@ -663,7 +673,7 @@ figure {
 
 @media (min-width: 1200px) {
   h1 {
-    font-size: 4.5vw;
+    font-size: clamp(3rem, 4.5vw, 6rem)
   }
 }
 
