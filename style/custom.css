@@ -165,7 +165,7 @@ section.home {
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 3em;
   font-weight: 900;
   letter-spacing: 0.01em;
 }
@@ -522,19 +522,19 @@ figure {
 
 @media (max-width: 800px) {
   h1 {
-    font-size: 2rem;
+    font-size: 2.3rem;
   }
 }
 
 @media (min-width: 800px) and(max-width: 1200px) {
   h1 {
-    font-size: clamp(3rem, 4.5vw, 6rem)
+    font-size: clamp(2.3rem, 3.5vw, 4rem)
   }
 }
 
 @media (min-width: 1200px) {
   h1 {
-    font-size: clamp(3rem, 4.5vw, 6rem)
+    font-size: clamp(2.4rem, 4vw, 4rem)
   }
 }
 
