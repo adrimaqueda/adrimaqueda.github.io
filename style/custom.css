@@ -111,7 +111,6 @@ a {
   font-weight: 300;
   font-size: 1.1rem;
   line-height: 1.5rem;
-  color: #333;
 }
 a:link {
   text-decoration: none;
@@ -313,8 +312,8 @@ section.header {
 }
 
 .content > img {
-  -webkit-filter: grayscale(80%);
-  filter: grayscale(80%);
+  -webkit-filter: grayscale(35%);
+  filter: grayscale(35%);
   transition: all 0.2;
   margin-top: 0.5rem;
 }
@@ -425,10 +424,7 @@ figure {
   }
 }
 
-.socials {
-  margin-top: 1rem;
-  display: flex;
-}
+
 
 .socials > a {
   color: white;
