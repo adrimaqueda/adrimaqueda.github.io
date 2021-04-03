@@ -487,8 +487,7 @@ figure {
 @media (max-width: 800px) {
   .headline {
     font-size: 4rem;
-    padding-bottom: 0.5em;
-    line-height: 1;
+    padding-bottom: 0.1em;
   }
 
   .currently {
