@@ -99,6 +99,29 @@ video {
   scroll-behavior: smooth;
 }
 
+.nom_mov {
+  display: none;
+}
+
+@media only screen and (max-width: 669px) {
+  .nom_mov {
+    display: block;
+    max-width: 335px;
+    padding-bottom: 6vw;
+  }
+}
+.nom_large {
+  display: none;
+}
+
+@media only screen and (min-width: 670px) {
+  .nom_large {
+    display: block;
+    padding-bottom: 1.2vw;
+  }
+}
+
+
 * {
   box-sizing: border-box;
 }
