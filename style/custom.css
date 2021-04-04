@@ -410,7 +410,7 @@ figure {
   display: flex;
   position: relative;
   font-feature-settings: "dlig" 1;
-  font-feature-settings: "liga" off;
+  letter-spacing: .5vw;
 }
 
 .currently {
