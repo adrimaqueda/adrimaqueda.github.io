@@ -111,9 +111,26 @@
 <main style="background-color: #fdfdfd;">
   <div style="height: 100vh; margin: 0 auto;position: absolute; width:95%">
     <div style="padding: 10px;">
-      <h1 style="text-align: center; padding-top: 1em; padding-bottom:.2em">👨🏻‍💻 🤓</h1>
-      <h2 style="padding: 10px;">Periodismo de datos · DataViz · Cultura digital · Redes sociales · Tecnología</h2>
-      <hr style="max-width: 95%; margin: auto ; margin-top: 1em;">
+      <h1 style="text-align: center; padding-top: 1em; padding-bottom:.2em">Vaccination progress</h1>
+      <div id="observablehq-intro-36133131"></div>
+      <div id="observablehq-intro-36133131"></div>
+      <div id="observablehq-chart-36133131"></div>
+      <div id="observablehq-tooltipId-36133131"></div>
+      <div id="observablehq-tooltipTemplate-36133131"></div>
+      <div id="observablehq-tooltip-36133131"></div>
+      <p>Credit: <a href="https://observablehq.com/d/b3707717448ffd8e">Vaccination progress by ADRI 👨🏻‍💻</a></p>
+      
+      <script type="module">
+      import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+      import define from "https://api.observablehq.com/d/b3707717448ffd8e.js?v=3";
+      new Runtime().module(define, name => {
+        if (name === "intro") return new Inspector(document.querySelector("#observablehq-intro-36133131"));
+        if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-36133131"));
+        if (name === "tooltipId") return new Inspector(document.querySelector("#observablehq-tooltipId-36133131"));
+        if (name === "tooltipTemplate") return new Inspector(document.querySelector("#observablehq-tooltipTemplate-36133131"));
+        if (name === "tooltip") return new Inspector(document.querySelector("#observablehq-tooltip-36133131"));
+      });
+      </script>
     </div>
   </div>
 </main>
