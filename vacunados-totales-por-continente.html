@@ -32,6 +32,17 @@
 
   <!-- cambiar título página-->
   <title>Adrián Maqueda</title>
+
+  <style>
+  .highlight {
+    font-weight: bold;
+    font-size: 1.2em;
+    background: rgb(87,183,163, .3);
+    padding-left: .2em;
+    padding-right: .2em
+    }
+
+  </style>
 </head>
 
 <body>
@@ -109,16 +120,18 @@
 </div>
 
 <main style="background-color: #fdfdfd;">
-  <div style="height: 100vh; margin: 0 auto;position: absolute; width:95%">
+  <div style="height: 100vh; margin: 0 auto; width:95%">
     <div style="padding: 10px;">
       <h1 style="text-align: center; padding-top: 1em; padding-bottom:.2em">Vaccination progress</h1>
       <div id="observablehq-intro-36133131"></div>
-      <div id="observablehq-intro-36133131"></div>
       <div id="observablehq-chart-36133131"></div>
-      <div id="observablehq-tooltipId-36133131"></div>
-      <div id="observablehq-tooltipTemplate-36133131"></div>
-      <div id="observablehq-tooltip-36133131"></div>
-      <p>Credit: <a href="https://observablehq.com/d/b3707717448ffd8e">Vaccination progress by ADRI 👨🏻‍💻</a></p>
+      <div id="observablehq-tooltipId-a224744c"></div>
+<div id="observablehq-tooltipTemplate-a224744c"></div>
+<div id="observablehq-tooltip-a224744c"></div>
+
+    </div>
+
+
       
       <script type="module">
       import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
@@ -126,9 +139,10 @@
       new Runtime().module(define, name => {
         if (name === "intro") return new Inspector(document.querySelector("#observablehq-intro-36133131"));
         if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-36133131"));
-        if (name === "tooltipId") return new Inspector(document.querySelector("#observablehq-tooltipId-36133131"));
-        if (name === "tooltipTemplate") return new Inspector(document.querySelector("#observablehq-tooltipTemplate-36133131"));
-        if (name === "tooltip") return new Inspector(document.querySelector("#observablehq-tooltip-36133131"));
+        if (name === "tooltipId") return new Inspector(document.querySelector("#observablehq-tooltipId-a224744c"));
+  if (name === "tooltipTemplate") return new Inspector(document.querySelector("#observablehq-tooltipTemplate-a224744c"));
+  if (name === "tooltip") return new Inspector(document.querySelector("#observablehq-tooltip-a224744c"));
+
       });
       </script>
     </div>
