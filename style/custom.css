@@ -259,21 +259,21 @@ ul {
 }
 
 @media (max-width: 800px) {
-  p {
+  ul,p {
     font-size: 1.1rem;
     text-align: left;
   }
 }
 
 @media (min-width: 800px) and(max-width: 1200px) {
-  p {
+  ul,p {
     font-size: 0.9vw;
   }
 }
 
 @media (min-width: 1200px) {
-  p {
-    font-size: clamp(1rem, 1.6vw, 2rem)
+  ul,p {
+    font-size: clamp(1rem, 1.6vw, 2rem); line-height: 2rem;
   }
 }
 

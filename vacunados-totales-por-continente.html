@@ -39,7 +39,8 @@
     font-size: 1.2em;
     background: rgb(87,183,163, .3);
     padding-left: .2em;
-    padding-right: .2em
+    padding-right: .2em;
+    padding-bottom: 0;
     }
 
   </style>
@@ -125,10 +126,6 @@
       <h1 style="text-align: center; padding-top: 1em; padding-bottom:.2em">Vaccination progress</h1>
       <div id="observablehq-intro-36133131"></div>
       <div id="observablehq-chart-36133131"></div>
-      <div id="observablehq-tooltipId-a224744c"></div>
-<div id="observablehq-tooltipTemplate-a224744c"></div>
-<div id="observablehq-tooltip-a224744c"></div>
-
     </div>
 
 
@@ -139,10 +136,6 @@
       new Runtime().module(define, name => {
         if (name === "intro") return new Inspector(document.querySelector("#observablehq-intro-36133131"));
         if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-36133131"));
-        if (name === "tooltipId") return new Inspector(document.querySelector("#observablehq-tooltipId-a224744c"));
-  if (name === "tooltipTemplate") return new Inspector(document.querySelector("#observablehq-tooltipTemplate-a224744c"));
-  if (name === "tooltip") return new Inspector(document.querySelector("#observablehq-tooltip-a224744c"));
-
       });
       </script>
     </div>
