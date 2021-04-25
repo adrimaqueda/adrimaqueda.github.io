@@ -99,6 +99,11 @@ video {
   scroll-behavior: smooth;
 }
 
+.nombre {
+    display: block;
+    padding-bottom: 1.2vw;
+  }
+
 .nom_mov {
   display: none;
 }
