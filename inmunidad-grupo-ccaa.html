@@ -32,37 +32,63 @@
 
   <!-- cambiar título página-->
   <title>Adrián Maqueda</title>
+<style>
+  b {font-weight: bold;}
+</style>
 
-  <style>
-  .underline {
-    font-weight: bold;
-    font-size: 1.2em;
-    background: rgb(87,183,163, .3);
-    padding-left: .2em;
-    padding-right: .2em;
-    padding-bottom: 0;
-    }
-
-    b {
-      font-weight: bold;
-    }
-
-  </style>
 </head>
 
 <body>
   <!-- Es solo una pequeña web para ir recopilando algunas caosas que voy haciendo y de paso jugar con HTML y CSS -->
   
-  <!-- landing -->
-  <div style="background-color: black;">
-  <div style="height: 15vh; max-width: 95%; margin: 0 auto;" class="wrapper"> 
-    <div style="width: 80vw; max-width: 900px;margin: auto; padding: 10px;">
-      
-      <div class="nombre">
-        <img src="./images/nombre.svg">
+<div style="background-color: #fdfdfd;">
+  <div style="margin: 0 auto; width:95%; max-width: 1440px;">
+    <div style="padding: 10px;">
+      <h1 style="text-align: center; padding-top: .5em; padding-bottom:.5em; text-shadow: 0.1em 0.1em rgb(87,183,163, .5);">Progreso de vacunación 💉</h1>
+      <div style="background-color: rgba(0, 0, 0, 0.04);">
+        <div style="padding:1.3em; font-style: italic; margin-bottom:2em; font-size: .85em;">
+          <span><b>Aviso:</b></span>
+          <span>Esto es un pequeño experimento para probar el cálculo de fechas con javascript y D3, no es nada especialmente profesional (no tiene en cuenta la variación del ritmo de vacunación que pueda producirse con las dosis previstas para los próximos meses, el cálculo está hecho con la cifra del último informe o con la media de la última semana -una simple regla de 3, vaya-).</span>
+          <span><br><br>Una vez dejado esto claro, espero que os guste 🤓</span>
+        </div>
+      </div>
+      <div id="observablehq-viewof-calc-ae263fc7" style="padding-bottom: .7em;"></div>
+      <div id="observablehq-resumen-ae263fc7"></div>
+      <div id="observablehq-viewof-selector-403245db" style="padding-bottom: 1.2em; padding-top: .2em;"></div>
+      <div id="observablehq-table-ae263fc7"></div>
+      <div id="observablehq-container-ae263fc7" style="padding-top: 1em;"></div>
+      <div style="background:rgb(87,183,163, .08); font-family:sans-serif; margin-bottom:1em">
+        <p style="padding:1em;">
+          Datos de vacunación extraídos del dataset de <a href="https://github.com/datadista/datasets" target="_blank">Datadista</a> y la población extraída del INE
+        </p>
+      </div>
+
+
+      <script type="module">
+        import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+        import define from "https://api.observablehq.com/d/4d159fae67202fcc.js?v=3";
+        new Runtime().module(define, name => {
+          if (name === "viewof calc") return new Inspector(document.querySelector("#observablehq-viewof-calc-ae263fc7"));
+          if (name === "resumen") return new Inspector(document.querySelector("#observablehq-resumen-ae263fc7"));
+          if (name === "table") return new Inspector(document.querySelector("#observablehq-table-ae263fc7"));
+          if (name === "container") return new Inspector(document.querySelector("#observablehq-container-ae263fc7"));
+          if (name === "viewof selector") return new Inspector(document.querySelector("#observablehq-viewof-selector-403245db"));
+        return ["proyectData","ccaaData","xScale","latestData","area","line","xAxis","best","worst", "spanish", "calcLab", "ccaaLab"].includes(name);
+        });
+      </script>
+
+    </div>
+  </div>      
+</div>
+
+<div style="background-color: black;">
+  <div style="height: 17vh; max-width: 95%; margin: 0 auto; display: grid; align-items: center;" class="wrapper"> 
+    <div style="width: 85vw; max-width: 900px;margin: auto; padding: 10px;">
+      <div class="nombre" style="padding-bottom: 16px; max-width: 600px; margin-right: auto; margin-left: auto;">
+        <a href="https://adrimaqueda.com"><img src="./images/nombre.svg"></a>
       </div>
             
-      <div class="socials">
+      <div class="socials" style="display: flex; justify-content: center;">
         <a href="https://twitter.com/adrimaqueda"
         target="_blank" style="background: none; padding-right: .5em;">
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
@@ -113,35 +139,12 @@
           </svg>
         </a>
      </div>
-    </div>
+  </div>
   </div>
 </div>
 
-<main style="background-color: #fdfdfd;">
-  <div style="height: 100vh; margin: 0 auto; width:95%">
-    <div style="padding: 10px;">
-      <h1 style="text-align: center; padding-top: 1em; padding-bottom:.5em">Vaccination progress 💉</h1>
-      <div id="observablehq-intro-64e1a818"></div>
-<div id="observablehq-info-64e1a818"></div>
-<div id="observablehq-chart-64e1a818"></div>
 
-<script type="module">
-import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-import define from "https://api.observablehq.com/@adrimaqueda/vaccination-progress.js?v=3";
-new Runtime().module(define, name => {
-  if (name === "intro") return new Inspector(document.querySelector("#observablehq-intro-64e1a818"));
-  if (name === "info") return new Inspector(document.querySelector("#observablehq-info-64e1a818"));
-  if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-64e1a818"));
-});
-</script>
-          </div>
 
-    
-
-      
-    </div>
-  </div>
-</main>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

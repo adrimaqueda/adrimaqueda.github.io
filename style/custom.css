@@ -437,14 +437,7 @@ figure {
 }
 
 .headline {
-  color: #f7f7f7;
-  font-family: 'Chulapa';
-  font-size: 8vw;
-  font-weight: bold;
-  display: flex;
-  position: relative;
-  font-feature-settings: "dlig" 1;
-  letter-spacing: .5vw;
+text-shadow: 0.07em 0.07em #57B7A3;
 }
 
 .currently {
