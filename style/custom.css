@@ -278,7 +278,7 @@ ul {
 
 @media (min-width: 1200px) {
   ul,p {
-    font-size: clamp(1rem, 1.6vw, 2rem); line-height: 2rem;
+    font-size: clamp(1rem, 1.6vw, 1.3rem); line-height: 2rem;
   }
 }
 
