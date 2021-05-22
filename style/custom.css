@@ -264,42 +264,26 @@ ul {
 }
 
 @media (max-width: 800px) {
-  ul,p {
+  ul,p,a {
     font-size: 1.1rem;
     text-align: left;
   }
 }
 
 @media (min-width: 800px) and(max-width: 1200px) {
-  ul,p {
+  ul,p,a {
     font-size: 0.9vw;
   }
 }
 
 @media (min-width: 1200px) {
-  ul,p {
+  ul,p,a {
     font-size: clamp(1rem, 1.6vw, 1.3rem); line-height: 2rem;
   }
 }
 
-@media (max-width: 800px) {
-  a {
-    font-size: 1.1rem;
-    text-align: left;
-  }
-}
 
-@media (min-width: 800px) and(max-width: 1200px) {
-  a {
-    font-size: 0.9vw;
-  }
-}
 
-@media (min-width: 1200px) {
-  a {
-    font-size: clamp(1rem, 1.6vw, 2rem)
-  }
-}
 
 section.header {
   margin: 0 auto;
