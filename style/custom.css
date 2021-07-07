@@ -213,13 +213,12 @@ h2 {
   padding-top: 1em;
   padding-bottom: 1em;
   text-align: center;
-  font-weight: 300;
+  font-weight: 900;
 }
 
 @media (max-width: 800px) {
   h2 {
     font-size: 1.4rem;
-    text-align: left;
   }
 }
 
