@@ -174,13 +174,17 @@ function drawInitial(){
     .call((g) => g.selectAll(".tick text").style("font-weight", "bold").style("font-size","1.5rem")
                   .html(d=> `<tspan style="fill:orange">${cats.find(dd=> d === dd.cat).f}</tspan> / <tspan style="fill:grey">${cats.find(dd=> d === dd.cat).m}</tspan> ${cats.find(dd=> d === dd.cat).o > 0 ? `/ ${cats.find(dd=> d === dd.cat).o}` : ""}`))
 
-    vertical_axis = svg.append("g").attr("opacity", 0).attr("transform", `translate(0,-60)`)
+    vertical_categories = svg.append("g").attr("opacity", 0).attr("transform", `translate(0,-60)`)
     .call(d3.axisRight(yM))
     .call((g) => g.select(".domain").remove())
     .call((g) => g.selectAll(".tick line").remove())
-    .call((g) => g.selectAll(".tick text").style("font-weight", "bold").style("font-size","1rem").html(d=> `${traducir(d)}: <tspan style="fill:orange">${cats.find(dd=> d === dd.cat).f}</tspan> / <tspan style="fill:grey">${cats.find(dd=> d === dd.cat).m}</tspan> ${cats.find(dd=> d === dd.cat).o > 0 ? `/ ${cats.find(dd=> d === dd.cat).o}` : ""}`))
+    .call((g) => g.selectAll(".tick text").style("font-weight", "bold").style("font-size","1rem").html(d=> `${traducir(d)}`))
 
-
+    vertical_prizes = svg.append("g").attr("opacity", 0).attr("transform", `translate(0,-40)`)
+    .call(d3.axisRight(yM))
+    .call((g) => g.select(".domain").remove())
+    .call((g) => g.selectAll(".tick line").remove())
+    .call((g) => g.selectAll(".tick text").style("font-weight", "bold").style("font-size","1rem").html(d=> `<tspan style="fill:orange">${cats.find(dd=> d === dd.cat).f}</tspan> / <tspan style="fill:grey">${cats.find(dd=> d === dd.cat).m}</tspan> ${cats.find(dd=> d === dd.cat).o > 0 ? `/ ${cats.find(dd=> d === dd.cat).o}` : ""}`))
 
     nodes = svg
     .selectAll("circle")
@@ -215,7 +219,7 @@ onTick();  }
         });
 
         // update graphic based on step
-        //init
+        //step1
         if (response.index === 0) {
             simulation
             .force("x", d3.forceX((d) => width/2))
@@ -226,16 +230,15 @@ onTick();  }
             .restart()
 
           nodes.attr("opacity", 1)
-
             }
 
-        //first
+        //step2
         if (response.index === 1) {
           simulation
             .force("x", d3.forceX((d) => is_mobile ? xM(d.gender) : x(d.category)))
             .force("y", d3.forceY((d) => is_mobile ? yM(d.category) : y(d.gender)))
             .force("collide", d3.forceCollide((d) => r + r/2).iterations(2))
-            .force('charge', d3.forceManyBody().strength(-1))
+            .force('charge', d3.forceManyBody().strength(0))
             .alpha(.9)
             .restart()
 
@@ -243,23 +246,21 @@ onTick();  }
         }
 
         if (response.index === 1 && response.direction === "up") {
-          categories.transition().duration(500).attr("opacity", 0)
+          if (is_mobile) {vertical_categories.transition().duration(500).attr("opacity", 0)} else {categories.transition().duration(500).attr("opacity", 0)}
         }
 
-        //second
+        //step3
         if (response.index === 2) {
-          categories.transition().duration(500).attr("opacity", 1)
+          if (is_mobile) {vertical_categories.transition().duration(500).attr("opacity", 1)} else {categories.transition().duration(500).attr("opacity", 1)}
         }
 
         if (response.index === 2 && response.direction === "up") {
-          prizes.transition().duration(500).attr("opacity", 0)
+          if (is_mobile) {vertical_prizes.transition().duration(500).attr("opacity", 0)} else {prizes.transition().duration(500).attr("opacity", 0)} 
         }
 
-        //third
+        //step4
         if (response.index === 3) {
-          if (!is_mobile) {
-            prizes.transition().duration(500).attr("opacity", 1)
-          }
+          if (is_mobile) {vertical_prizes.transition().duration(500).attr("opacity", 1)} else {prizes.transition().duration(500).attr("opacity", 1)}
         }
 
       }
