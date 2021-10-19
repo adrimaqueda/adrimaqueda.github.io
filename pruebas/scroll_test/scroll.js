@@ -14,7 +14,7 @@
         var stepH = Math.floor(window.innerHeight * .9);
         step.style("height", stepH + "px");
 
-        var figureHeight = window.innerHeight * .85
+        var figureHeight = window.innerHeight * .9
         var figureMarginTop = (window.innerHeight - figureHeight) / 2;
 
         figure
